@@ -9,12 +9,16 @@
         :root {
             --primary-color: #b1001c;
             --primary-light: #e63946;
+            --primary-dark: #8a0017;
             --secondary-color: #1d3557;
             --light-color: #f1faee;
             --background: #f8f9fa;
+            --card-bg: #ffffff;
             --dark-text: #212529;
             --light-text: #6c757d;
-            --white: #ffffff;
+            --border: #dee2e6;
+            --success: #28a745;
+            --warning: #ffc107;
             --shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
@@ -33,8 +37,8 @@
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color), #d1002a);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: white;
             padding: 70px 20px 50px;
             text-align: center;
             position: relative;
@@ -135,14 +139,14 @@
         .feature-box {
             flex: 1;
             min-width: 300px;
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 35px;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
         
         .feature-box:hover {
@@ -171,7 +175,7 @@
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
         
         .app-section::before {
@@ -194,13 +198,13 @@
         }
         
         .target-group {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 35px;
             box-shadow: var(--shadow);
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
         
         .target-group h4 {
@@ -210,6 +214,8 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 15px;
         }
         
         .target-group h4 i {
@@ -232,6 +238,7 @@
             align-items: flex-start;
             gap: 15px;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .app-feature:hover {
@@ -268,12 +275,13 @@
         .benefit-card {
             flex: 1;
             min-width: 250px;
-            background: var(--white);
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 15px;
             box-shadow: var(--shadow);
             text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .benefit-card:hover {
@@ -317,7 +325,7 @@
         }
         
         .app-button:hover {
-            background: #8a0017;
+            background: var(--primary-dark);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(177, 0, 28, 0.4);
         }
@@ -337,7 +345,7 @@
         .mockup {
             width: 280px;
             height: 500px;
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 35px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             overflow: hidden;
@@ -365,13 +373,28 @@
             border-radius: 10px;
             text-align: center;
             margin-bottom: 20px;
+            font-size: 1.1rem;
         }
         
         .mockup-item {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
         }
         
         .contact-info {
@@ -384,12 +407,13 @@
         .contact-method {
             flex: 1;
             min-width: 250px;
-            background: var(--white);
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 15px;
             box-shadow: var(--shadow);
             text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .contact-method:hover {
@@ -425,7 +449,7 @@
         
         footer {
             background: var(--secondary-color);
-            color: var(--white);
+            color: white;
             text-align: center;
             padding: 50px 20px 30px;
             margin-top: 80px;
@@ -454,6 +478,104 @@
         .social-links a:hover {
             background: var(--primary-color);
             transform: translateY(-5px);
+        }
+        
+        .ba-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .ba-feature {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .ba-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .ba-feature i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .ba-feature-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .ba-feature-content p {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 0;
+        }
+        
+        .app-screenshot {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .screenshot-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .testimonial {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
@@ -492,6 +614,10 @@
                 max-width: 300px;
                 justify-content: center;
             }
+            
+            .ba-features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -501,7 +627,7 @@
             <div class="header-content">
                 <h1>KlarVermittelt</h1>
                 <h2>Vermittlung mit Haltung</h2>
-                <p class="tagline">Ich bin kein Anzugträger. Ich bin einer von euch. Ich weiß, wie es ist, nachts zu schuften, sich durchs System zu kämpfen – und am Ende trotzdem nicht gesehen zu werden.</p>
+                <p class="tagline">Die persönliche Alternative zur Bundesagentur für Arbeit - mit Menschlichkeit und moderner Technologie.</p>
             </div>
         </div>
     </header>
@@ -509,7 +635,7 @@
     <main class="container">
         <section id="about">
             <h3>Über mich</h3>
-            <p>Darum habe ich <span class="highlight">KlarVermittelt</span> gegründet: um Menschen fair zu vermitteln. Mit Respekt. Mit Haltung. Kein Papierkram, keine Floskeln – nur echte Verbindungen zwischen Arbeitssuchenden und Unternehmen, die zueinander passen.</p>
+            <p>Ich bin kein Anzugträger. Ich bin einer von euch. Ich weiß, wie es ist, nachts zu schuften, sich durchs System zu kämpfen – und am Ende trotzdem nicht gesehen zu werden. Darum habe ich <span class="highlight">KlarVermittelt</span> gegründet: um Menschen fair zu vermitteln. Mit Respekt. Mit Haltung. Kein Papierkram, keine Floskeln – nur echte Verbindungen zwischen Arbeitssuchenden und Unternehmen, die zueinander passen.</p>
         </section>
 
         <div class="features">
@@ -528,7 +654,7 @@
 
         <section id="app">
             <h3>Die KlarVermittelt App</h3>
-            <p>Mit unserer neuen App bringen wir die Vermittlung mit Haltung direkt auf dein Smartphone. Einfach, persönlich und fair – ganz ohne bürokratischen Ballast. Für Arbeitssuchende und Unternehmen gleichermaßen.</p>
+            <p>Mit unserer neuen App bringen wir die Vermittlung mit Haltung direkt auf dein Smartphone. Einfach, persönlich und fair – mit allen Funktionen der BA-App, aber menschlicher und effizienter.</p>
             
             <div class="app-section">
                 <div class="app-targets">
@@ -607,23 +733,55 @@
                     </div>
                 </div>
                 
-                <div class="app-benefits">
-                    <div class="benefit-card">
-                        <i class="fas fa-clock"></i>
-                        <h4>Zeitersparnis</h4>
-                        <p>Reduziere den Vermittlungsprozess um bis zu 70% durch direkte Kommunikation und automatisierte Abläufe.</p>
+                <h3 style="text-align: center; margin-top: 60px;">BA-ähnliche Funktionen mit persönlichem Touch</h3>
+                
+                <div class="ba-features">
+                    <div class="ba-feature">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="ba-feature-content">
+                            <h4>Dokumentenmanagement</h4>
+                            <p>Lade Lebenslauf, Zeugnisse und andere Dokumente hoch und verwalte sie zentral.</p>
+                        </div>
                     </div>
                     
-                    <div class="benefit-card">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Bessere Matches</h4>
-                        <p>83% höhere Zufriedenheit durch Fokus auf kulturelle Passung und persönliche Werte.</p>
+                    <div class="ba-feature">
+                        <i class="fas fa-tasks"></i>
+                        <div class="ba-feature-content">
+                            <h4>Bewerbungsverlauf</h4>
+                            <p>Verfolge den Status deiner Bewerbungen in Echtzeit mit Statusupdates.</p>
+                        </div>
                     </div>
                     
-                    <div class="benefit-card">
+                    <div class="ba-feature">
+                        <i class="fas fa-calendar-day"></i>
+                        <div class="ba-feature-content">
+                            <h4>Terminmanagement</h4>
+                            <p>Vereinbare und verwalte Termine mit deinem persönlichen Vermittler.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ba-feature">
+                        <i class="fas fa-bell"></i>
+                        <div class="ba-feature-content">
+                            <h4>Benachrichtigungen</h4>
+                            <p>Erhalte Push-Benachrichtigungen über neue Stellen und wichtige Updates.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ba-feature">
                         <i class="fas fa-euro-sign"></i>
-                        <h4>Kostenreduktion</h4>
-                        <p>Keine versteckten Kosten oder Provisionsmodelle - transparente Preise für alle.</p>
+                        <div class="ba-feature-content">
+                            <h4>Leistungsanträge</h4>
+                            <p>Stelle Anträge auf Arbeitslosengeld und andere Leistungen direkt in der App.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ba-feature">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="ba-feature-content">
+                            <h4>Weiterbildungen</h4>
+                            <p>Finde passende Weiterbildungsangebote und Kurse in deiner Nähe.</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -631,19 +789,25 @@
                     <div class="mockup">
                         <div class="mockup-content">
                             <div class="mockup-header">
-                                <h4>Passende Stellen</h4>
+                                <h4>Meine Bewerbungen</h4>
                             </div>
                             <div class="mockup-item">
+                                <div class="status-badge">Beworben</div>
                                 <strong>Techniker (m/w/d)</strong>
-                                <p>Ab sofort · Vollzeit</p>
+                                <p>Meier GmbH · Köln</p>
+                                <p><small>Beworben am: 12.06.2025</small></p>
                             </div>
                             <div class="mockup-item">
+                                <div class="status-badge" style="background: var(--warning);">In Bearbeitung</div>
                                 <strong>Kundenservice</strong>
-                                <p>Teilzeit · Homeoffice</p>
+                                <p>Service AG · Bonn</p>
+                                <p><small>Beworben am: 10.06.2025</small></p>
                             </div>
                             <div class="mockup-item">
+                                <div class="status-badge" style="background: var(--success);">Zusage</div>
                                 <strong>Lagerlogistik</strong>
-                                <p>Sofort · Schichtarbeit</p>
+                                <p>Logistik Solutions · Düsseldorf</p>
+                                <p><small>Beworben am: 05.06.2025</small></p>
                             </div>
                         </div>
                     </div>
@@ -651,16 +815,54 @@
                     <div class="mockup">
                         <div class="mockup-content">
                             <div class="mockup-header">
-                                <h4>Kandidatenprofil</h4>
+                                <h4>Terminübersicht</h4>
                             </div>
-                            <div style="text-align: center; margin-top: 20px;">
-                                <div style="width: 80px; height: 80px; background: var(--primary-light); border-radius: 50%; margin: 0 auto 15px;"></div>
-                                <h4>Markus Schneider</h4>
-                                <p>Fachkraft Lagerlogistik</p>
+                            <div class="mockup-item">
+                                <strong>Beratungsgespräch</strong>
+                                <p>Heute, 14:00 Uhr</p>
+                                <p><small>Mit: Thomas Weber</small></p>
                             </div>
-                            <div style="margin-top: 20px;">
-                                <p>"Ich suche einen Job mit flexiblen Schichten, da ich meine Kinder abholen muss. Wert lege ich auf ein faires Team."</p>
+                            <div class="mockup-item">
+                                <strong>Vorstellungsgespräch</strong>
+                                <p>18.06.2025, 10:30 Uhr</p>
+                                <p><small>Bei: Meier GmbH</small></p>
                             </div>
+                            <div class="mockup-item">
+                                <strong>Online-Seminar</strong>
+                                <p>22.06.2025, 16:00 Uhr</p>
+                                <p><small>"Bewerbungstraining"</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="app-benefits">
+                    <div class="benefit-card">
+                        <i class="fas fa-user-friends"></i>
+                        <h4>Persönlicher Kontakt</h4>
+                        <p>Im Gegensatz zur BA-App hast du immer einen persönlichen Ansprechpartner.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Schnelle Vermittlung</h4>
+                        <p>Durchschnittlich 30% kürzere Vermittlungszeit als bei der BA.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Menschlicher Ansatz</h4>
+                        <p>Wir sehen dich als Menschen, nicht als Nummer im System.</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Die KlarVermittelt App hat mir innerhalb von 2 Wochen zu einem Job verholfen, der wirklich zu mir passt. Bei der BA war ich monatelang nur eine Nummer."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MS</div>
+                        <div>
+                            <strong>Markus Schneider</strong>
+                            <p>Fachkraft Lagerlogistik</p>
                         </div>
                     </div>
                 </div>
@@ -671,7 +873,7 @@
                         App Store
                     </a>
                     <a href="#" class="app-button">
-                        <i class="fab fa-google-play"></i>
+                        <i class="fab fa-android"></i>
                         Google Play
                     </a>
                 </div>
